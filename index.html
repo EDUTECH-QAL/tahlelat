@@ -8,26 +8,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
 
 :root{
-  --bg:#10121a;
-  --bg2:#161924;
-  --surface:#1b1f2e;
-  --surface2:#222740;
-  --line:rgba(255,255,255,.08);
-  --line2:rgba(255,255,255,.14);
-  --txt:#ecebe8;
-  --muted:#9b9aa7;
-  --faint:#6c6b78;
-  --gold:#e3a755;
-  --gold-soft:rgba(227,167,85,.14);
-  /* temperaments */
-  --nt:#7cc4f5;       /* محللون */
-  --nf:#7ee0a8;       /* دبلوماسيون */
-  --sj:#f2cf6b;       /* حُرّاس */
-  --sp:#f29bb0;       /* مستكشفون */
-  /* fit */
-  --good:#6ee7a0;
-  --mid:#f0c050;
-  --bad:#f08a7a;
+  --bg:#10121a; --bg2:#161924; --surface:#1b1f2e; --surface2:#222740;
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --txt:#ecebe8; --muted:#9b9aa7; --faint:#6c6b78;
+  --gold:#e3a755; --gold-soft:rgba(227,167,85,.14);
+  --nt:#7cc4f5; --nf:#7ee0a8; --sj:#f2cf6b; --sp:#f29bb0;
+  --good:#6ee7a0; --mid:#f0c050; --bad:#f08a7a;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--bg);color:var(--txt);font-family:'IBM Plex Sans Arabic',sans-serif}
@@ -37,138 +23,154 @@ body{
     radial-gradient(900px 500px at 100% -10%, rgba(227,167,85,.07), transparent 60%),
     radial-gradient(800px 500px at 0% 0%, rgba(124,196,245,.06), transparent 55%),
     var(--bg);
-  min-height:100vh;
-  padding:0 0 80px;
+  min-height:100vh;padding:0 0 80px;
 }
 .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
 
-/* ===== Header ===== */
-header{
-  padding:54px 0 30px;
-  border-bottom:1px solid var(--line);
-  margin-bottom:34px;
-  position:relative;
-}
-.kicker{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:13px;letter-spacing:.5px;color:var(--gold);
-  background:var(--gold-soft);border:1px solid rgba(227,167,85,.3);
-  padding:6px 14px;border-radius:100px;margin-bottom:18px;font-weight:600;
-}
+header{padding:54px 0 30px;border-bottom:1px solid var(--line);margin-bottom:10px;position:relative}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.5px;color:var(--gold);
+  background:var(--gold-soft);border:1px solid rgba(227,167,85,.3);padding:6px 14px;border-radius:100px;margin-bottom:18px;font-weight:600}
 .kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
-h1{font-family:'Cairo',sans-serif;font-weight:900;font-size:clamp(30px,5vw,46px);line-height:1.2;letter-spacing:-.5px}
+h1{font-family:'Cairo';font-weight:900;font-size:clamp(30px,5vw,46px);line-height:1.2;letter-spacing:-.5px}
 h1 span{color:var(--gold)}
-.sub{color:var(--muted);font-size:16px;margin-top:12px;max-width:680px}
+.sub{color:var(--muted);font-size:16px;margin-top:12px;max-width:700px}
+.upd{display:inline-block;margin-top:14px;font-size:12.5px;color:var(--good);background:rgba(110,231,160,.1);border:1px solid rgba(110,231,160,.25);padding:5px 12px;border-radius:8px}
 
-/* ===== Section titles ===== */
-.sec{margin:48px 0 20px}
-.sec h2{font-family:'Cairo',sans-serif;font-weight:800;font-size:24px;display:flex;align-items:center;gap:12px}
+.sec{margin:50px 0 20px}
+.sec h2{font-family:'Cairo';font-weight:800;font-size:24px;display:flex;align-items:center;gap:12px}
 .sec h2::before{content:"";width:5px;height:24px;border-radius:4px;background:var(--gold);display:inline-block}
 .sec p{color:var(--muted);font-size:14.5px;margin-top:6px;padding-right:17px}
 
-/* ===== Stat cards ===== */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.stat{
-  background:linear-gradient(160deg,var(--surface),var(--bg2));
-  border:1px solid var(--line);border-radius:18px;padding:22px 20px;position:relative;overflow:hidden;
-}
+.stat{background:linear-gradient(160deg,var(--surface),var(--bg2));border:1px solid var(--line);border-radius:18px;padding:22px 20px;position:relative;overflow:hidden}
 .stat::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,transparent,rgba(227,167,85,.05));pointer-events:none}
-.stat .num{font-family:'Cairo',sans-serif;font-weight:900;font-size:38px;line-height:1;color:var(--gold)}
+.stat .num{font-family:'Cairo';font-weight:900;font-size:38px;line-height:1;color:var(--gold)}
 .stat .lab{color:var(--muted);font-size:14px;margin-top:8px}
 .stat .hint{color:var(--faint);font-size:12.5px;margin-top:4px}
 
-/* ===== Dimension bars ===== */
 .dims{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .dimcard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 24px}
-.dimrow{margin-bottom:22px}
-.dimrow:last-child{margin-bottom:0}
+.dimrow{margin-bottom:22px}.dimrow:last-child{margin-bottom:0}
 .dimhead{display:flex;justify-content:space-between;font-size:14px;margin-bottom:9px}
-.dimhead .l{font-weight:600}
-.dimhead .r{color:var(--muted)}
+.dimhead .l{font-weight:600}.dimhead .r{color:var(--muted)}
 .track{height:30px;border-radius:9px;background:var(--surface2);overflow:hidden;display:flex;border:1px solid var(--line)}
 .seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:600;color:#11131c;white-space:nowrap;transition:width 1.1s cubic-bezier(.2,.7,.2,1);width:0}
 .seg.alt{color:var(--txt);background:var(--surface2)!important}
 
-/* ===== Temperament ===== */
 .temps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.temp{border:1px solid var(--line);border-radius:18px;padding:20px;background:var(--surface);text-align:center;position:relative}
+.temp{border:1px solid var(--line);border-radius:18px;padding:20px;background:var(--surface);text-align:center}
 .temp .dot{width:42px;height:42px;border-radius:13px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-family:'Cairo';font-weight:900;font-size:18px;color:#11131c}
 .temp .tn{font-weight:700;font-size:16px}
 .temp .tc{font-family:'Cairo';font-weight:900;font-size:30px;margin-top:6px}
 .temp .tp{color:var(--muted);font-size:13px}
 .temp .td{color:var(--faint);font-size:12.5px;margin-top:8px;border-top:1px solid var(--line);padding-top:8px}
 
-/* ===== Controls ===== */
+/* fit overview */
+.fitwrap{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+.fitbar{height:36px;border-radius:10px;overflow:hidden;display:flex;border:1px solid var(--line)}
+.fitbar .seg{font-size:13px}
+.fitlegend{display:flex;gap:22px;flex-wrap:wrap;margin-top:16px;font-size:13.5px;color:var(--muted)}
+.fitlegend i{width:11px;height:11px;border-radius:3px;display:inline-block;margin-inline-end:7px;vertical-align:middle}
+
+/* controls + member cards */
 .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:22px}
 .tabs{display:flex;flex-wrap:wrap;gap:8px}
-.tab{
-  border:1px solid var(--line2);background:transparent;color:var(--muted);
-  padding:9px 16px;border-radius:100px;font-family:'IBM Plex Sans Arabic';font-size:14px;font-weight:600;cursor:pointer;transition:.2s;
-}
+.tab{border:1px solid var(--line2);background:transparent;color:var(--muted);padding:9px 16px;border-radius:100px;font-family:'IBM Plex Sans Arabic';font-size:14px;font-weight:600;cursor:pointer;transition:.2s}
 .tab:hover{border-color:var(--gold);color:var(--txt)}
 .tab.on{background:var(--gold);border-color:var(--gold);color:#11131c}
-.search{
-  margin-inline-start:auto;background:var(--surface);border:1px solid var(--line2);
-  border-radius:100px;padding:9px 18px;color:var(--txt);font-family:'IBM Plex Sans Arabic';font-size:14px;min-width:200px;
-}
+.search{margin-inline-start:auto;background:var(--surface);border:1px solid var(--line2);border-radius:100px;padding:9px 18px;color:var(--txt);font-family:'IBM Plex Sans Arabic';font-size:14px;min-width:200px}
 .search:focus{outline:none;border-color:var(--gold)}
 
-/* ===== Member cards ===== */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
-.card{
-  background:linear-gradient(165deg,var(--surface),var(--bg2));
-  border:1px solid var(--line);border-radius:18px;padding:20px;position:relative;overflow:hidden;
-  transition:transform .25s,border-color .25s;
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(335px,1fr));gap:18px}
+.card{background:linear-gradient(165deg,var(--surface),var(--bg2));border:1px solid var(--line);border-radius:18px;padding:20px;position:relative;overflow:hidden;transition:transform .25s,border-color .25s}
 .card:hover{transform:translateY(-4px);border-color:var(--line2)}
 .card .edge{position:absolute;inset-inline-start:0;top:0;bottom:0;width:4px}
 .ctop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:6px}
 .cname{font-family:'Cairo';font-weight:800;font-size:18px}
 .crole{color:var(--gold);font-size:13.5px;font-weight:600;margin-bottom:2px}
 .cmeta{color:var(--faint);font-size:12.5px;margin-bottom:14px}
-.badge{
-  font-family:'Cairo';font-weight:800;font-size:13px;padding:5px 11px;border-radius:9px;white-space:nowrap;color:#11131c;
-}
+.badge{font-family:'Cairo';font-weight:800;font-size:13px;padding:5px 11px;border-radius:9px;white-space:nowrap;color:#11131c}
 .btype{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
 .bnick{font-size:12px;color:var(--muted);font-weight:500}
 .fit{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;margin-bottom:12px}
 .fit::before{content:"";width:8px;height:8px;border-radius:50%}
-.fit.good{background:rgba(110,231,160,.12);color:var(--good)} .fit.good::before{background:var(--good)}
-.fit.mid{background:rgba(240,192,80,.12);color:var(--mid)} .fit.mid::before{background:var(--mid)}
-.fit.bad{background:rgba(240,138,122,.13);color:var(--bad)} .fit.bad::before{background:var(--bad)}
+.fit.good{background:rgba(110,231,160,.12);color:var(--good)}.fit.good::before{background:var(--good)}
+.fit.mid{background:rgba(240,192,80,.12);color:var(--mid)}.fit.mid::before{background:var(--mid)}
+.fit.bad{background:rgba(240,138,122,.13);color:var(--bad)}.fit.bad::before{background:var(--bad)}
 .canalysis{font-size:14px;color:#d4d3da;margin-bottom:14px}
 .sw{display:grid;gap:8px}
 .sw div{font-size:13px;display:flex;gap:8px;align-items:flex-start}
 .sw .ico{flex-shrink:0;font-size:14px;line-height:1.5}
-.sw .s .ico{color:var(--good)}
-.sw .w .ico{color:var(--mid)}
+.sw .s .ico{color:var(--good)}.sw .w .ico{color:var(--mid)}
 .sw span.t{color:var(--muted)}
 
-/* ===== Recommendations ===== */
+/* section analysis */
+.secs{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:18px}
+.sc{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;position:relative}
+.sc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.sc-top h3{font-family:'Cairo';font-weight:800;font-size:17px}
+.hbadge{font-size:12px;font-weight:700;padding:4px 11px;border-radius:8px}
+.hbadge.h-good{background:rgba(110,231,160,.14);color:var(--good)}
+.hbadge.h-mid{background:rgba(240,192,80,.14);color:var(--mid)}
+.hbadge.h-bad{background:rgba(240,138,122,.15);color:var(--bad)}
+.mchips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+.mchip{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:5px 10px;font-size:12.5px}
+.mchip b{font-family:'Cairo';font-weight:800;font-size:11px;padding:2px 6px;border-radius:5px;color:#11131c}
+.mchip.pend{border-style:dashed;opacity:.7}
+.mchip.pend b{background:var(--faint);color:#11131c}
+.sc-rec{font-size:13.5px;color:#cfced6;border-top:1px solid var(--line);padding-top:12px;display:flex;gap:9px}
+.sc-rec .b{color:var(--gold);flex-shrink:0}
+
+/* strengths & risks */
+.sr{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.srcol{border:1px solid var(--line);border-radius:18px;padding:24px}
+.srcol.str{background:linear-gradient(160deg,rgba(110,231,160,.07),var(--surface))}
+.srcol.rsk{background:linear-gradient(160deg,rgba(240,138,122,.07),var(--surface))}
+.srcol h3{font-family:'Cairo';font-weight:800;font-size:18px;margin-bottom:16px;display:flex;align-items:center;gap:9px}
+.srcol.str h3{color:var(--good)}.srcol.rsk h3{color:var(--bad)}
+.srcol ul{list-style:none;display:grid;gap:13px}
+.srcol li{font-size:14px;color:#d4d3da;display:flex;gap:10px;align-items:flex-start}
+.srcol li::before{content:"";flex-shrink:0;width:7px;height:7px;border-radius:50%;margin-top:9px}
+.srcol.str li::before{background:var(--good)}.srcol.rsk li::before{background:var(--bad)}
+.srcol li b{color:var(--txt)}
+
+/* missing types */
+.missing{background:linear-gradient(160deg,rgba(124,196,245,.08),var(--surface));border:1px solid rgba(124,196,245,.25);border-radius:18px;padding:24px}
+.missing h3{font-family:'Cairo';font-weight:800;font-size:18px;color:var(--nt);margin-bottom:10px}
+.missing p{font-size:14.5px;color:#cfced6;margin-bottom:14px}
+.misstags{display:flex;flex-wrap:wrap;gap:9px}
+.misstag{background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:8px 13px;font-size:13px;color:var(--muted)}
+.misstag b{font-family:'Cairo';color:var(--nt)}
+
+/* reassignment map */
+.moves{display:grid;gap:14px}
+.move{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.move .who{font-family:'Cairo';font-weight:800;font-size:16px;min-width:130px}
+.move .who small{display:block;color:var(--faint);font-size:11.5px;font-weight:400;font-family:'IBM Plex Sans Arabic'}
+.move .flow{display:flex;align-items:center;gap:10px;font-size:14px;flex:1;flex-wrap:wrap}
+.move .from{color:var(--bad);background:rgba(240,138,122,.1);padding:5px 12px;border-radius:8px}
+.move .arr{color:var(--gold);font-size:18px}
+.move .to{color:var(--good);background:rgba(110,231,160,.1);padding:5px 12px;border-radius:8px;font-weight:600}
+
+/* recommendations */
 .recos{display:grid;gap:16px}
-.reco{
-  background:linear-gradient(160deg,rgba(227,167,85,.1),var(--surface));
-  border:1px solid rgba(227,167,85,.28);border-radius:18px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;
-}
+.reco{background:linear-gradient(160deg,rgba(227,167,85,.1),var(--surface));border:1px solid rgba(227,167,85,.28);border-radius:18px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start}
 .reco .n{font-family:'Cairo';font-weight:900;font-size:26px;color:var(--gold);flex-shrink:0;width:42px;height:42px;border-radius:12px;background:var(--gold-soft);display:flex;align-items:center;justify-content:center}
 .reco h3{font-family:'Cairo';font-weight:800;font-size:18px;margin-bottom:6px}
-.reco p{font-size:14.5px;color:#cfced6}
-.reco b{color:var(--gold)}
+.reco p{font-size:14.5px;color:#cfced6}.reco b{color:var(--gold)}
 
-/* ===== Pending ===== */
+/* pending */
 .pending{background:var(--surface);border:1px dashed var(--line2);border-radius:18px;padding:22px 24px}
-.pchips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.pchips{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
 .pchip{background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:8px 13px;font-size:13.5px}
 .pchip small{color:var(--faint);display:block;font-size:11.5px}
-.pchip.flag{border-color:rgba(227,167,85,.4)}
-.pchip.flag small{color:var(--gold)}
 
 footer{margin-top:50px;padding-top:24px;border-top:1px solid var(--line);color:var(--faint);font-size:13px;text-align:center}
 .empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px;font-size:15px}
 @media(max-width:760px){
   .stats,.temps{grid-template-columns:repeat(2,1fr)}
-  .dims{grid-template-columns:1fr}
-  .reco{flex-direction:column;gap:10px}
+  .dims,.sr{grid-template-columns:1fr}
+  .reco,.move{flex-direction:column;align-items:flex-start;gap:10px}
 }
 </style>
 </head>
@@ -178,62 +180,66 @@ footer{margin-top:50px;padding-top:24px;border-top:1px solid var(--line);color:v
 <header>
   <span class="kicker">الفريق المركزي · EDU-TECH (ET)</span>
   <h1>لوحة تحليل <span>أنماط الفريق</span></h1>
-  <p class="sub">تحليل تفصيلي لـ ٢٠ عضوًا حسب نمط الشخصية (MBTI) والمنصب التنظيمي — مع قراءة لمدى التطابق ونقاط القوة والتحديات والتوصيات. النمط أداة للفهم والحوار، وليس حكمًا نهائيًا على الكفاءة.</p>
+  <p class="sub">تحليل تفصيلي لـ ٢٦ عضوًا حسب نمط الشخصية (MBTI) والمنصب التنظيمي: قراءة لمدى التطابق، نقاط القوة والتحديات، تحليل كل قسم، الأنماط المفقودة، وخريطة توزيع مقترحة. النمط أداة للفهم والحوار، لا حكم نهائي على الكفاءة.</p>
+  <span class="upd">آخر تحديث: ٢٦ عضوًا تم تحليلهم · بقي ٥ فقط</span>
 </header>
 
-<!-- STATS -->
+<!-- OVERVIEW -->
 <div class="sec"><h2>نظرة عامة</h2></div>
 <div class="stats">
-  <div class="stat"><div class="num">٣١</div><div class="lab">إجمالي الأعضاء</div><div class="hint">٢٠ تم تحليلهم · ١١ بانتظار النمط</div></div>
-  <div class="stat"><div class="num">٦</div><div class="lab">من نمط ENTJ القيادي</div><div class="hint">أكثر نمط تكرارًا — تيم غني بالقيادات</div></div>
-  <div class="stat"><div class="num">١٨/٢٠</div><div class="lab">حدسيون (N)</div><div class="hint">تيم رؤية واستراتيجية أكثر من التفاصيل</div></div>
-  <div class="stat"><div class="num">١٥/٢٠</div><div class="lab">منفتحون (E)</div><div class="hint">تيم نشيط، صوته عالٍ، يحب النقاش</div></div>
+  <div class="stat"><div class="num">٣١</div><div class="lab">إجمالي الأعضاء</div><div class="hint">٢٦ تم تحليلهم · ٥ بانتظار النمط</div></div>
+  <div class="stat"><div class="num">٨</div><div class="lab">من نمط ENTJ القيادي</div><div class="hint">أكثر نمط تكرارًا (٣١٪ من المحلَّلين)</div></div>
+  <div class="stat"><div class="num">٢٣/٢٦</div><div class="lab">حدسيون (N)</div><div class="hint">تيم رؤية واستراتيجية</div></div>
+  <div class="stat"><div class="num">١٦</div><div class="lab">تطابق قوي مع الدور</div><div class="hint">٣ فقط يحتاجون مراجعة جذرية</div></div>
 </div>
 
 <!-- DIMENSIONS -->
-<div class="sec"><h2>توزيع الأبعاد الأربعة</h2><p>كل بُعد محسوب على الـ ٢٠ عضوًا أصحاب الأنماط المعروفة.</p></div>
+<div class="sec"><h2>توزيع الأبعاد الأربعة</h2><p>محسوبة على الـ ٢٦ عضوًا أصحاب الأنماط المعروفة.</p></div>
 <div class="dims">
   <div class="dimcard">
-    <div class="dimrow">
-      <div class="dimhead"><span class="l">الانفتاح ↔ الانطواء</span><span class="r">E ١٥ · I ٥</span></div>
-      <div class="track"><div class="seg" style="background:var(--nt)" data-w="75">منفتح ٧٥٪</div><div class="seg alt" data-w="25">انطوائي</div></div>
-    </div>
-    <div class="dimrow">
-      <div class="dimhead"><span class="l">الحدس ↔ الحس</span><span class="r">N ١٨ · S ٢</span></div>
-      <div class="track"><div class="seg" style="background:var(--nf)" data-w="90">حدسي ٩٠٪</div><div class="seg alt" data-w="10">حسّي</div></div>
-    </div>
-    <div class="dimrow">
-      <div class="dimhead"><span class="l">التفكير ↔ المشاعر</span><span class="r">T ١٠ · F ١٠</span></div>
-      <div class="track"><div class="seg" style="background:var(--gold)" data-w="50">تفكير ٥٠٪</div><div class="seg alt" data-w="50">مشاعر ٥٠٪</div></div>
-    </div>
+    <div class="dimrow"><div class="dimhead"><span class="l">الانفتاح ↔ الانطواء</span><span class="r">E ٢٠ · I ٦</span></div>
+      <div class="track"><div class="seg" style="background:var(--nt)" data-w="77">منفتح ٧٧٪</div><div class="seg alt" data-w="23">انطوائي</div></div></div>
+    <div class="dimrow"><div class="dimhead"><span class="l">الحدس ↔ الحس</span><span class="r">N ٢٣ · S ٣</span></div>
+      <div class="track"><div class="seg" style="background:var(--nf)" data-w="88">حدسي ٨٨٪</div><div class="seg alt" data-w="12">حسّي</div></div></div>
+    <div class="dimrow"><div class="dimhead"><span class="l">التفكير ↔ المشاعر</span><span class="r">T ١٣ · F ١٣</span></div>
+      <div class="track"><div class="seg" style="background:var(--gold)" data-w="50">تفكير ٥٠٪</div><div class="seg alt" data-w="50">مشاعر ٥٠٪</div></div></div>
   </div>
   <div class="dimcard">
-    <div class="dimrow">
-      <div class="dimhead"><span class="l">الحكم ↔ الإدراك</span><span class="r">J ١٢ · P ٨</span></div>
-      <div class="track"><div class="seg" style="background:var(--sj)" data-w="60">منظّم (J) ٦٠٪</div><div class="seg alt" data-w="40">مرن (P)</div></div>
-    </div>
-    <div class="dimrow">
-      <div class="dimhead"><span class="l">الحزم ↔ التقلب</span><span class="r">A ١٢ · T ٨</span></div>
-      <div class="track"><div class="seg" style="background:var(--sp)" data-w="60">واثق (A) ٦٠٪</div><div class="seg alt" data-w="40">حساس (T)</div></div>
-    </div>
-    <div class="dimrow">
-      <div class="dimhead"><span class="l">ملاحظة</span><span class="r">التوازن T/F صحي</span></div>
-      <div class="track" style="background:transparent;border:none;height:auto;display:block;font-size:13px;color:var(--muted);line-height:1.6">توازن مثالي بين العقل التحليلي والحس الإنساني، مع ميل عام واضح للتنظيم — مناسب لفريق بلوائح وقرارات رسمية.</div>
-    </div>
+    <div class="dimrow"><div class="dimhead"><span class="l">الحكم ↔ الإدراك</span><span class="r">J ١٥ · P ١١</span></div>
+      <div class="track"><div class="seg" style="background:var(--sj)" data-w="58">منظّم (J) ٥٨٪</div><div class="seg alt" data-w="42">مرن (P)</div></div></div>
+    <div class="dimrow"><div class="dimhead"><span class="l">الحزم ↔ التقلب</span><span class="r">A ١٥ · T ١١</span></div>
+      <div class="track"><div class="seg" style="background:var(--sp)" data-w="58">واثق (A) ٥٨٪</div><div class="seg alt" data-w="42">حساس (T)</div></div></div>
+    <div class="dimrow"><div class="dimhead"><span class="l">ملاحظة</span><span class="r">التوازن T/F مثالي</span></div>
+      <div class="track" style="background:transparent;border:none;height:auto;display:block;font-size:13px;color:var(--muted);line-height:1.6">توازن تام بين العقل التحليلي والحس الإنساني (١٣/١٣)، مع ميل واضح للتنظيم والثقة — مناسب لفريق بلوائح وقرارات رسمية.</div></div>
   </div>
 </div>
 
 <!-- TEMPERAMENTS -->
-<div class="sec"><h2>الفئات الكبرى (المزاج)</h2><p>أبرز فجوة في التيم: وفرة في المحللين والدبلوماسيين، وندرة شديدة في الحُرّاس (المنفّذ التفصيلي).</p></div>
+<div class="sec"><h2>الفئات الكبرى (المزاج)</h2><p>أبرز سمة: نصف التيم محلّلون، وأكبر فجوة هي ندرة الحُرّاس (المنفّذ التفصيلي المنضبط).</p></div>
 <div class="temps">
-  <div class="temp"><div class="dot" style="background:var(--nt)">NT</div><div class="tn">المحللون</div><div class="tc" style="color:var(--nt)">١٠</div><div class="tp">٥٠٪</div><div class="td">قيادة · منطق · استراتيجية</div></div>
-  <div class="temp"><div class="dot" style="background:var(--nf)">NF</div><div class="tn">الدبلوماسيون</div><div class="tc" style="color:var(--nf)">٨</div><div class="tp">٤٠٪</div><div class="td">إلهام · تواصل · إبداع</div></div>
-  <div class="temp"><div class="dot" style="background:var(--sj)">SJ</div><div class="tn">الحُرّاس</div><div class="tc" style="color:var(--sj)">١</div><div class="tp">٥٪</div><div class="td">دقة · التزام · تنفيذ روتيني</div></div>
-  <div class="temp"><div class="dot" style="background:var(--sp)">SP</div><div class="tn">المستكشفون</div><div class="tc" style="color:var(--sp)">١</div><div class="tp">٥٪</div><div class="td">عفوية · حركة · تفاعل</div></div>
+  <div class="temp"><div class="dot" style="background:var(--nt)">NT</div><div class="tn">المحللون</div><div class="tc" style="color:var(--nt)">١٣</div><div class="tp">٥٠٪</div><div class="td">قيادة · منطق · استراتيجية</div></div>
+  <div class="temp"><div class="dot" style="background:var(--nf)">NF</div><div class="tn">الدبلوماسيون</div><div class="tc" style="color:var(--nf)">١٠</div><div class="tp">٣٨٪</div><div class="td">إلهام · تواصل · إبداع</div></div>
+  <div class="temp"><div class="dot" style="background:var(--sj)">SJ</div><div class="tn">الحُرّاس</div><div class="tc" style="color:var(--sj)">١</div><div class="tp">٤٪</div><div class="td">دقة · التزام · تنفيذ روتيني</div></div>
+  <div class="temp"><div class="dot" style="background:var(--sp)">SP</div><div class="tn">المستكشفون</div><div class="tc" style="color:var(--sp)">٢</div><div class="tp">٨٪</div><div class="td">حِرفة · حركة · تفاعل</div></div>
+</div>
+
+<!-- FIT OVERVIEW -->
+<div class="sec"><h2>تحليل التطابق الإجمالي</h2><p>مدى تطابق نمط كل عضو مع منصبه الحالي.</p></div>
+<div class="fitwrap">
+  <div class="fitbar">
+    <div class="seg" style="background:var(--good)" data-w="62">تطابق قوي · ١٦</div>
+    <div class="seg" style="background:var(--mid)" data-w="27">جزئي · ٧</div>
+    <div class="seg" style="background:var(--bad)" data-w="11">مراجعة · ٣</div>
+  </div>
+  <div class="fitlegend">
+    <span><i style="background:var(--good)"></i>تطابق قوي (٦٢٪): العضو في مكانه الطبيعي</span>
+    <span><i style="background:var(--mid)"></i>تطابق جزئي (٢٧٪): يؤدي لكن مع تحفّظ أو تعديل</span>
+    <span><i style="background:var(--bad)"></i>يحتاج مراجعة (١١٪): يُفضّل النقل</span>
+  </div>
 </div>
 
 <!-- MEMBERS -->
-<div class="sec"><h2>تحليل الأعضاء التفصيلي</h2><p>اضغط على التبويبات للتصفية حسب الموقع أو مدى التطابق، أو ابحث بالاسم.</p></div>
+<div class="sec"><h2>تحليل الأعضاء التفصيلي</h2><p>صفِّ حسب الموقع أو التطابق، أو ابحث بالاسم. الإطار الجانبي ملوّن حسب الفئة (محلل/دبلوماسي/حارس/مستكشف).</p></div>
 <div class="controls">
   <div class="tabs" id="tabs">
     <button class="tab on" data-f="all">الكل</button>
@@ -247,34 +253,84 @@ footer{margin-top:50px;padding-top:24px;border-top:1px solid var(--line);color:v
 </div>
 <div class="grid" id="grid"></div>
 
-<!-- RECOMMENDATIONS -->
-<div class="sec"><h2>التوصيات العملية</h2></div>
-<div class="recos">
-  <div class="reco"><div class="n">١</div><div><h3>أعيدي توزيع البرمجة</h3><p>البرمجة دلوقتي عند أنماط <b>ENFP/INFP</b> (ملك، ياسين، مروان، لجين) وهم أنسب للميديا والإبداع والتواصل. الأنماط المنطقية — <b>جني (INTJ)، احمد بدوي (ENTJ)، والـ ENTP</b> — أنسب بكثير للبرمجة بحكم صبرها المنطقي وتركيزها على الحل. لو البرمجة لن تظل "مؤقتة"، حوّليها لهم.</p></div></div>
-  <div class="reco"><div class="n">٢</div><div><h3>صحّحي موقع الأرشيف</h3><p>مالك (<b>ESFP</b>) اجتماعي عفوي، والأرشيف يحتاج دقة وروتين — تطابق ضعيف، وغالبًا سيمل. <b>سيليا (ISFJ)</b> أو <b>محمود (ENTJ)</b> أنسب بكثير لقلب القسم، ومالك ينتقل لمكان فيه ناس وحركة (دعم وتواصل / تيك داي / فعاليات).</p></div></div>
-  <div class="reco"><div class="n">٣</div><div><h3>وازني الأصوات في الاجتماعات</h3><p>عندك ٦ ENTJ و٣ ENTP و٣ ENFP — طاقة قيادية ودافعة عالية، لكن خطر تنازع الآراء وطول النقاش. وزّعي الأدوار بوضوح، واتركي مساحة للـ ٥ انطوائيين (جني، بلال، حنين، لجين) أصحاب التفكير العميق كي لا تبلعهم الأصوات الأعلى.</p></div></div>
-  <div class="reco"><div class="n">٤</div><div><h3>راعي حساسية أنماط الـ T</h3><p>أعضاء مثل لجين وحنين وملك وجاسر وسيليا (Turbulent) حساسون للنقد ويميلون للكمالية. قدّمي الملاحظات بلطف، وادعميهم بالتقدير والطمأنة، ولا تحمّليهم فوق طاقتهم.</p></div></div>
-</div>
+<!-- SECTION ANALYSIS -->
+<div class="sec"><h2>تحليل الأقسام</h2><p>صحة كل قسم بناءً على تطابق أنماط أعضائه، مع توصية لكل قسم.</p></div>
+<div class="secs" id="secs"></div>
 
-<!-- PENDING -->
-<div class="sec"><h2>بانتظار تحديد النمط</h2><p>١١ عضوًا لم يُحدَّد نمطهم بعد. أرسلي أنماطهم لإكمال التحليل — وأولاهم بالأولوية مسؤولة قسم التدريب.</p></div>
-<div class="pending">
-  <div class="pchips">
-    <div class="pchip flag">سيلفيا سامح<small>مسؤولة قسم التدريب · أولوية</small></div>
-    <div class="pchip">ستيفن بيمن<small>مسؤول المونتاج والتصوير</small></div>
-    <div class="pchip">محمد طارق<small>مسؤول ملف تيك داي</small></div>
-    <div class="pchip">احمد فايز<small>مساعد مدير إداري</small></div>
-    <div class="pchip">احمد سامر<small>دعم وتواصل وأرشيف</small></div>
-    <div class="pchip">ملك محمد فتحي<small>ميديا وتصوير</small></div>
-    <div class="pchip">يس محمد حازم<small>برمجة (مؤقت) وأرشيف</small></div>
-    <div class="pchip">زياد اسلام<small>ميديا وتصوير</small></div>
-    <div class="pchip">مازن حمادة<small>برمجة (مؤقت) وتدريب</small></div>
-    <div class="pchip">الحسن عمرو<small>ميديا وتصوير</small></div>
-    <div class="pchip">عمر محمد عيد<small>بدون دور محدّد</small></div>
+<!-- STRENGTHS & RISKS -->
+<div class="sec"><h2>نقاط القوة والمخاطر</h2></div>
+<div class="sr">
+  <div class="srcol str">
+    <h3>▲ نقاط قوة التيم</h3>
+    <ul>
+      <li><b>قيادة فائضة:</b> ٨ ENTJ + ٤ ENTP = طاقة دفع وإنجاز ومبادرة استثنائية.</li>
+      <li><b>توازن عقل/قلب مثالي:</b> ١٣ تفكير مقابل ١٣ مشاعر — قرارات منطقية لا تهمل البُعد الإنساني.</li>
+      <li><b>قسم تقييم استثنائي:</b> ثلاثة من أعمق المفكرين (INFJ×٢ + INTJ) في مكان واحد.</li>
+      <li><b>قسم تدريب غني:</b> مكدّس بالقادة المنظّمين (ENTJ) والمُلهِمين (ENFJ) — أنسب الأنماط للتدريب.</li>
+      <li><b>حِرفيون فنيون حقيقيون:</b> ستيفن (ISFP) ولجين (INFP) يغطّيان الإبداع البصري الأصيل.</li>
+      <li><b>ميل تنظيمي قوي:</b> ١٥ منظّم (J) مناسب لبيئة بلوائح وإجراءات رسمية.</li>
+    </ul>
+  </div>
+  <div class="srcol rsk">
+    <h3>◆ مخاطر تحتاج انتباهًا</h3>
+    <ul>
+      <li><b>كثرة القادة:</b> ٨ ENTJ + ٤ ENTP قد تعني تنازعًا على القرار، طول نقاش، وصعوبة إذعان — وزّعي الأدوار بحسم.</li>
+      <li><b>ندرة المنفّذ التفصيلي:</b> سيليا (ISFJ) وحدها من الحُرّاس — خطر ضعف المتابعة الروتينية والتوثيق اليومي رغم اللوائح التفصيلية.</li>
+      <li><b>الانطوائيون قد يُبتلعون:</b> ٦ انطوائيين (جني، بلال، حنين، لجين، ستيفن) أصحاب فكر عميق — احرصي على إعطائهم مساحة.</li>
+      <li><b>البرمجة غير مثالية التوزيع:</b> ٣ من ENFP فيها وهم أضعف تطابقًا مع المنطق المتسلسل.</li>
+      <li><b>حساسية أنماط الـ T:</b> ١١ عضوًا (Turbulent) حساسون للنقد ويميلون للكمالية — النبرة والتقدير يفرقان.</li>
+      <li><b>عضو بلا دور:</b> عمر عيد (ENFJ) طاقة مهدرة بدون تكليف.</li>
+    </ul>
   </div>
 </div>
 
-<footer>لوحة تحليل الفريق المركزي EDU-TECH (ET) · بُنيت لأغراض تنظيمية داخلية · النمط مدخل للحوار لا حكم نهائي</footer>
+<!-- MISSING TYPES -->
+<div class="sec"><h2>الأنماط المفقودة</h2><p>ما الذي لا يوجد في التيم، ولماذا يهم؟</p></div>
+<div class="missing">
+  <h3>الفجوة الكبرى: غياب الحُرّاس المنفّذين (SJ)</h3>
+  <p>لا يوجد في التيم أي <b>ISTJ / ESTJ / ESFJ</b> — وهي الأنماط التي تمثّل العمود الفقري للتنفيذ الروتيني، والانضباط الإجرائي، والدقة في المواعيد والتوثيق المتكرر. سيليا (ISFJ) هي الوحيدة القريبة من هذه الفئة. عمليًا: تيمك ممتاز في "التفكير والتخطيط والإلهام" لكنه ضعيف في "من ينفّذ الروتين اليومي ويتابع التفاصيل بصبر". عند التوظيف القادم، رشّحي أنماطًا منظّمة منفّذة (SJ) لسد هذه الفجوة، خصوصًا في الأرشيف والمتابعة الإجرائية.</p>
+  <div class="misstags">
+    <span class="misstag"><b>ISTJ</b> — اللوجستي المنظّم</span>
+    <span class="misstag"><b>ESTJ</b> — المدير التنفيذي الصارم</span>
+    <span class="misstag"><b>ESFJ</b> — المنسّق الاجتماعي الدؤوب</span>
+    <span class="misstag"><b>ISTP</b> — الحِرفي التقني</span>
+    <span class="misstag"><b>ESTP</b> — رائد الأعمال العملي</span>
+  </div>
+</div>
+
+<!-- REASSIGNMENT MAP -->
+<div class="sec"><h2>خريطة التوزيع المقترحة</h2><p>نقلات محددة لرفع التطابق العام — اقتراحات للنقاش لا قرارات.</p></div>
+<div class="moves">
+  <div class="move"><div class="who">مالك الجمل<small>ESFP-A · اجتماعي</small></div><div class="flow"><span class="from">الأرشيف والبيانات</span><span class="arr">←</span><span class="to">الدعم والتواصل / تيك داي</span></div></div>
+  <div class="move"><div class="who">سيليا احمد<small>ISFJ-T · دقيقة</small></div><div class="flow"><span class="from">التدريب</span><span class="arr">←</span><span class="to">قيادة الأرشيف والبيانات</span></div></div>
+  <div class="move"><div class="who">البرمجة الأساسية<small>العمود الفقري</small></div><div class="flow"><span class="to">احمد بدوي (ENTJ) + مازن (ENTP) + جني (INTJ)</span></div></div>
+  <div class="move"><div class="who">ملك/ياسين/مروان<small>ENFP · مبدعون</small></div><div class="flow"><span class="from">برمجة (مؤقت)</span><span class="arr">←</span><span class="to">ميديا / دعم / تدريب</span></div></div>
+  <div class="move"><div class="who">عمر عيد<small>ENFJ-T · مُلهِم</small></div><div class="flow"><span class="from">بلا دور</span><span class="arr">←</span><span class="to">التدريب أو الدعم والتواصل</span></div></div>
+  <div class="move"><div class="who">الميديا الفنية<small>التنفيذ الإبداعي</small></div><div class="flow"><span class="to">ستيفن (ISFP) + لجين (INFP)، والـ ENTJ للتخطيط</span></div></div>
+</div>
+
+<!-- KEY RECOMMENDATIONS -->
+<div class="sec"><h2>أهم ٤ خطوات أولوية</h2></div>
+<div class="recos">
+  <div class="reco"><div class="n">١</div><div><h3>صحّحي قيادة الأرشيف فورًا</h3><p>الأرشيف هو أضعف قسم تطابقًا. انقلي قيادته لـ <b>محمود (ENTJ)</b> أو <b>سيليا (ISFJ)</b> — وسيليا تحديدًا مكانها الطبيعي هناك — وحرّكي مالك لمكان فيه ناس وحركة. هذه أعلى نقلة عائدًا.</p></div></div>
+  <div class="reco"><div class="n">٢</div><div><h3>ثبّتي البرمجة على الأنماط المنطقية</h3><p>اجعلي عمود البرمجة <b>احمد بدوي (ENTJ) + مازن (ENTP) + جني (INTJ)</b>، وحوّلي أنماط الـ ENFP (ملك، ياسين، مروان) لأدوار إبداعية — هناك يتألقون.</p></div></div>
+  <div class="reco"><div class="n">٣</div><div><h3>وازني الأصوات واحمي الانطوائيين</h3><p>مع ١٢ نمطًا قياديًا، وزّعي أدوار الاجتماعات بوضوح لتفادي التنازع، واتركي مساحة صريحة لـ <b>جني وبلال وحنين ولجين وستيفن</b> كي لا تبلعهم الأصوات الأعلى.</p></div></div>
+  <div class="reco"><div class="n">٤</div><div><h3>كلّفي عمر عيد وسُدّ فجوة الـ SJ</h3><p>أعطِ <b>عمر عيد (ENFJ)</b> دورًا في التدريب/الدعم بدل إهدار طاقته. وعند التوظيف القادم، استقطبي أنماطًا منفّذة منظّمة (SJ) لتقوية التنفيذ الروتيني.</p></div></div>
+</div>
+
+<!-- PENDING -->
+<div class="sec"><h2>بانتظار تحديد النمط</h2><p>٥ أعضاء فقط بقوا. أرسلي أنماطهم لإكمال الصورة بالكامل.</p></div>
+<div class="pending">
+  <div class="pchips">
+    <div class="pchip">ملك محمد فتحي<small>ميديا وتصوير · الشبان المسلمين</small></div>
+    <div class="pchip">احمد سامر<small>دعم وتواصل وأرشيف · الشهيد مدحت طلعت</small></div>
+    <div class="pchip">يس محمد حازم<small>برمجة (مؤقت) وأرشيف · الشهيد مدحت طلعت</small></div>
+    <div class="pchip">احمد فايز<small>مساعد مدير إداري · الشهيد مدحت طلعت</small></div>
+    <div class="pchip">الحسن عمرو<small>ميديا وتصوير · الشهيد مصطفى كامل</small></div>
+  </div>
+</div>
+
+<footer>لوحة تحليل الفريق المركزي EDU-TECH (ET) · ٢٦ عضوًا · بُنيت لأغراض تنظيمية داخلية · النمط مدخل للحوار لا حكم نهائي</footer>
 
 </div>
 
@@ -282,65 +338,83 @@ footer{margin-top:50px;padding-top:24px;border-top:1px solid var(--line);color:v
 const T={NT:'var(--nt)',NF:'var(--nf)',SJ:'var(--sj)',SP:'var(--sp)'};
 const members=[
  {n:"حسين يحيي",type:"ENTP-A",nick:"المُحاوِر · الواثق",tmp:"NT",tier:"leadership",role:"قائد الفريق",meta:"بنها · مدحت طلعت لغات",fit:"good",
-  a:"نمط القائد المبتكر بامتياز: سريع البديهة، رؤية كبيرة، مقنع، ومرتاح تحت الضغط بحكم الـ A.",
-  s:"رؤية وتحفيز وحل المشاكل المعقدة وكسر الجمود.",w:"يمل من التفاصيل والمتابعة والإغلاق — يحتاج منظّمًا جنبه يقفل وراه."},
+  a:"نمط القائد المبتكر بامتياز: سريع البديهة، رؤية كبيرة، مقنع، ومرتاح تحت الضغط بحكم الـ A. يحرّك الناس بالأفكار لا بالأوامر.",
+  s:"رؤية وتحفيز وحل المشاكل المعقدة وكسر الجمود.",w:"يمل من التفاصيل والمتابعة والإغلاق، ويطيل النقاشات المفتوحة — يحتاج منظّمًا (أمين سر/مساعد) يقفل وراه ويحوّل الأفكار لخطوات."},
  {n:"يوسف صياد",type:"ENTP-A",nick:"المُحاوِر · الواثق",tmp:"NT",tier:"leadership",role:"إعداد المحتوى + مدير إداري",meta:"بنها · مدحت طلعت لغات",fit:"mid",
-  a:"مبدع يطلّع أفكارًا بسرعة — ممتاز لإنشاء المحتوى. لكن شِق المدير الإداري يحتاج نظامًا وروتينًا.",
-  s:"إبداع وسرعة بديهة في المحتوى.",w:"الجانب الإداري الروتيني أضعف نقاطه — ادعميه بقوالب وتشيك ليست."},
+  a:"مبدع يطلّع أفكارًا بسرعة — ممتاز لإنشاء المحتوى. لكن شِق 'المدير الإداري' يحتاج نظامًا وروتينًا ومتابعة، وهو الجانب الأضعف للـ ENTP.",
+  s:"إبداع وسرعة بديهة في صناعة المحتوى.",w:"قد يبدع إبداعيًا ويتعثر إداريًا — ادعميه بقوالب وتشيك ليست أو بمساعد منظّم يتولّى الجزء الإداري."},
  {n:"احمد عبد العليم",type:"ENTJ-T",nick:"القائد المنفّذ · الحساس",tmp:"NT",tier:"leadership",role:"مساعد مدير تنفيذي",meta:"بنها · مدحت طلعت لغات",fit:"good",
-  a:"منفّذ منظّم حاسم، يكمّل القائد ENTP تمامًا: أنت تفكّر وهو ينظّم وينفّذ.",
-  s:"تنظيم وإنجاز وكفاءة في التنفيذ.",w:"الـ T يجعله يتوتر تحت الضغط ويأخذ الأخطاء بجدية — التقدير يفرق معه."},
+  a:"منفّذ منظّم حاسم يكمّل القائد ENTP تمامًا: القائد يفكّر ويبتكر، وهو ينظّم وينفّذ ويقفل الملفات. الثنائي ENTP+ENTJ من أقوى تركيبات القيادة.",
+  s:"تنظيم وإنجاز وكفاءة وتحويل الرؤية لتنفيذ.",w:"الـ T يجعله يتوتر تحت الضغط ويأخذ الأخطاء بجدية زائدة — لا تحمّليه فوق طاقته، والتقدير يفرق معه."},
  {n:"مالك الجمل",type:"ESFP-A",nick:"المؤدّي · الواثق",tmp:"SP",tier:"head",role:"مسؤول الأرشيف والبيانات",meta:"بنها · مدحت طلعت لغات",fit:"bad",
-  a:"نمط اجتماعي عفوي يحب الناس والحركة — أحد حسّيَّين فقط في التيم. الأرشيف يحتاج دقة وروتين، عكس طبيعته.",
-  s:"تفاعل وطاقة اجتماعية عالية.",w:"الروتين والتوثيق المتكرر يُمِلّه — يفضّل نقله لدور فيه ناس وحركة."},
+  a:"نمط اجتماعي عفوي يحب الناس والحركة والتفاعل المباشر — أحد ٣ حسّيين فقط في التيم. الأرشيف يتطلب دقة وروتينًا وصبرًا على التوثيق المتكرر، وهو عكس طبيعته تمامًا.",
+  s:"تفاعل وطاقة اجتماعية عالية وحضور.",w:"الروتين المكتبي يُمِلّه بسرعة — أوصي بنقله لدور فيه ناس وحركة (دعم وتواصل / تيك داي / فعاليات)، وتسليم الأرشيف لمحمود أو سيليا."},
  {n:"بلال محمود",type:"INFJ-A",nick:"المُحامي · الواثق",tmp:"NF",tier:"head",role:"مسؤول التقييم والمتابعة",meta:"بنها · مصطفى كامل لغات",fit:"good",
-  a:"بصيرة عميقة وحس عدل قوي يقرأ الناس والمواقف — يهتم بالجودة والإنصاف.",
-  s:"تحليل عميق وحكم منصف وثبات (A).",w:"انطوائي يحتاج راحة — لا تحمّليه متابعة كبيرة بتفاعل مستمر، وانتبهي لكماليته."},
+  a:"بصيرة عميقة وحس عدل قوي، يقرأ الناس والمواقف ببراعة — يهتم بالجودة والإنصاف في التقييم. الـ A يمنحه ثباتًا في حكمه.",
+  s:"تحليل عميق وحكم منصف ورؤية للصورة الإنسانية.",w:"انطوائي يشحن طاقته وحده — لا تحمّليه متابعة كثيفة بتفاعل مستمر بلا راحة، وانتبهي لميله للكمالية في المعايير."},
  {n:"يوسف مرزوق",type:"ENFJ-A",nick:"البطل المُلهِم · الواثق",tmp:"NF",tier:"head",role:"مسؤول الدعم والتواصل",meta:"العبور · عثمان بن عفان",fit:"good",
-  a:"تطابق مثالي! دافئ يقرأ مشاعر الناس، مقنع، يحب يساعد ويبني علاقات — واجهة التواصل البشري للتيم.",
-  s:"تواصل دافئ وبناء علاقات وإقناع.",w:"قد يأخذ مشاكل الناس على قلبه — يحافظ على حدوده."},
+  a:"تطابق مثالي! دافئ يقرأ مشاعر الناس، مقنع، يحب أن يساعد ويبني العلاقات — هو واجهة التواصل البشري الطبيعية للفريق. الـ A يمنحه ثقة واتزانًا.",
+  s:"تواصل دافئ وبناء علاقات وإقناع وحل خلافات.",w:"قد يأخذ مشاكل الناس على قلبه أكثر من اللازم — يحافظ على حدوده الشخصية. القسم قليل العدد، فعزّزيه."},
  {n:"ملك الشامي",type:"ENFP-T",nick:"المُناضل · الحساس",tmp:"NF",tier:"head",role:"مسؤول البرمجيات",meta:"بنها · مدحت طلعت لغات",fit:"mid",
-  a:"متحمس مبدع طاقته عالية. البرمجة تحتاج تركيزًا وصبرًا على المنطق المتسلسل — تحدٍّ للـ ENFP.",
-  s:"إبداع في الجزء التصميمي وطاقة عالية.",w:"يمل من المهام الطويلة، وحساس للنقد (T) — قدّمي الملاحظات بلطف."},
+  a:"متحمس مبدع طاقته عالية يحب الأفكار الجديدة. البرمجة تتطلب تركيزًا وصبرًا على المنطق المتسلسل والتفاصيل، وهو تحدٍّ لطبيعة الـ ENFP المتنوعة.",
+  s:"إبداع في الجانب التصميمي/الواجهات وطاقة عالية.",w:"يمل من المهام الطويلة المتكررة، وحساس للنقد (T) — الأنسب دور إبداعي/تفاعلي؛ ولو بقي على البرمجة فاجعليها الجزء التصميمي."},
  {n:"مريم عبده",type:"ENTJ-A",nick:"القائد المنفّذ · الواثق",tmp:"NT",tier:"head",role:"التدريب + ملف تقديم الطلاب",meta:"بنها · بنها الثانوية بنات",fit:"good",
-  a:"قائدة بالفطرة منظّمة حاسمة — تدير الملف بكفاءة ومتابعة. تطابق كويس جدًا.",
-  s:"تنظيم وقيادة ومتابعة حازمة.",w:"حزمها قد يُحسّ قاسيًا — تراعي الجانب الإنساني مع المتدربين الجدد."},
+  a:"قائدة بالفطرة منظّمة حاسمة تحب الإنجاز والهيكلة — تدير ملف الطلاب والتدريب بكفاءة ومتابعة دقيقة. تطابق قوي.",
+  s:"تنظيم وقيادة ومتابعة حازمة وإدارة ملفات.",w:"حزمها ومباشرتها قد يُحسّان قاسيين — تراعي الجانب الإنساني خاصة مع المتدربين والطلاب الجدد."},
  {n:"محمود هيثم",type:"ENTJ-A",nick:"القائد المنفّذ · الواثق",tmp:"NT",tier:"member",role:"الأرشيف",meta:"كفر شكر · الثانوية الصناعية",fit:"good",
-  a:"منظّم وحاسم — فعليًا أنسب للأرشيف من ESFP. يحب النظام والهيكلة.",
-  s:"نظام وهيكلة ودقّة تنظيمية.",w:"يمل لو حُصر في إدخال بيانات — اتركيه يطوّر نظام الأرشيف نفسه."},
+  a:"منظّم وحاسم يحب النظام والهيكلة — فعليًا من أنسب الأنماط لقيادة الأرشيف (أنسب من ESFP). يبني أنظمة لا يكتفي بتنفيذها.",
+  s:"نظام وهيكلة ودقّة تنظيمية وانضباط.",w:"يمل لو حُصر في إدخال بيانات بلا سلطة — اتركيه يطوّر نظام الأرشيف والفهرسة نفسه، وفكّري في إسناد قيادة القسم له."},
  {n:"زياد محمد",type:"ENTJ-A",nick:"القائد المنفّذ · الواثق",tmp:"NT",tier:"member",role:"ميديا وتصوير",meta:"غرب شبرا · الصالحين لغات",fit:"mid",
-  a:"منظّم ومنتِج ويُنجِز. لكن الإبداع البحت ليس شغفه الأول؛ قوته في التنظيم والقيادة.",
-  s:"تخطيط وتنظيم وإنتاجية.",w:"قد يمل من التنفيذ الإبداعي — الأفضل أن يقود تخطيط الميديا."},
+  a:"منظّم ومنتِج ويُنجِز ويلتزم بالمواعيد. لكن الإبداع الفني البحت ليس شغف الـ ENTJ الأول؛ قوته في التنظيم والقيادة والجدولة.",
+  s:"تخطيط وتنظيم وإنتاجية والتزام.",w:"قد يمل من التنفيذ الفني المتكرر — الأنسب أن يقود تخطيط وجدولة محتوى الميديا لا أن ينفّذه بنفسه."},
  {n:"احمد صياد",type:"ENTP-A",nick:"المُحاوِر · الواثق",tmp:"NT",tier:"member",role:"تقييم ومتابعة + ميديا",meta:"بنها · الشهيد مدحت طلعت · (تأكيد الاسم؟)",fit:"mid",
-  a:"مبدع ومحاور — الميديا تناسب إبداعه. التقييم والمتابعة روتيني وهو تحدٍّ للـ ENTP.",
-  s:"إبداع وسرعة بديهة.",w:"الروتين يُمِلّه — ركّزيه في الإبداعي. (مربوط باسم 'احمد محمد حازم' — أكّدي الربط)."},
+  a:"مبدع ومحاور سريع البديهة — الميديا تناسب إبداعه. أما التقييم والمتابعة فروتيني، وهو تحدٍّ للـ ENTP الذي يمل من التكرار.",
+  s:"إبداع وسرعة بديهة وطرح أفكار.",w:"الروتين يُمِلّه — ركّزيه في الجزء الإبداعي. (مربوط باسم 'احمد محمد حازم' كأخ ليوسف صياد — أكّدي الربط)."},
  {n:"جني سعيد",type:"INTJ-A",nick:"المهندس المخطّط · الواثق",tmp:"NT",tier:"member",role:"تقييم ومتابعة + أمين سر",meta:"بنها · الشيماء الثانوية",fit:"good",
-  a:"من أقوى التطابقات في التيم. مخطّط استراتيجي منظّم مستقل — يوثّق بدقة ويفكّر بمنهجية ويعمل ممتازًا وحده.",
-  s:"تخطيط منهجي وتوثيق دقيق واستقلالية.",w:"قد يُحسّ مباشرًا/باردًا — لكن شغله متقن."},
+  a:"من أقوى التطابقات في التيم كله. مخطّط استراتيجي منظّم مستقل يرى الأنظمة والصورة الكبيرة — يوثّق بدقة، ويفكّر بمنهجية، ويعمل ممتازًا وحده دون إشراف. مثالية لأمانة السر والتقييم.",
+  s:"تخطيط منهجي وتوثيق دقيق واستقلالية وتفكير منطقي.",w:"انطوائية ومباشرة — قد تُحسّ باردة أو نقدية، لكن مخرجاتها متقنة. مرشّحة قوية للمساهمة في البرمجة أيضًا."},
  {n:"حنين عمرو",type:"INFJ-T",nick:"المُحامي · الحساس",tmp:"NF",tier:"member",role:"تقييم ومتابعة",meta:"بنها · احمد زويل لغات",fit:"good",
-  a:"بصيرة وحس إنساني، تلاحظ التفاصيل الإنسانية في التقييم.",
-  s:"ملاحظة دقيقة وحس بالعدل.",w:"حساسة للنقد ومثالية — ادعميها وطمئنيها، وراعي أنها انطوائية تحتاج راحة."},
+  a:"بصيرة وحس إنساني عالٍ، تلاحظ التفاصيل الإنسانية والدوافع في التقييم — تكمّل بلال وجني بزاوية أكثر دفئًا.",
+  s:"ملاحظة دقيقة وحس بالعدل وتعاطف.",w:"حساسة للنقد ومثالية وتقلق على عملها — ادعميها وطمئنيها، وراعي أنها انطوائية تحتاج راحة."},
  {n:"لجين عبد الحميد",type:"INFP-T",nick:"الوسيط الحالم · الحساس",tmp:"NF",tier:"member",role:"ميديا وتصوير",meta:"كفر شكر",fit:"good",
-  a:"حالمة مبدعة عندها حس جمالي وقيمي عالٍ — الميديا والتصوير تطابق حلو لجانبها الجمالي.",
-  s:"إبداع وحس جمالي وشغف.",w:"حساسة جدًا للنقد — الملاحظات بلطف شديد، وتحتاج معنى وإلهامًا لا أوامر جافة."},
+  a:"حالمة مبدعة عندها حس جمالي وقيمي عالٍ، تعمل بشغف حين تؤمن بالفكرة — الميديا والتصوير تطابق جميل لجانبها الجمالي. من قلائل المبدعين الفنيين الحقيقيين في التيم.",
+  s:"إبداع وحس جمالي راقٍ وشغف بالمعنى.",w:"حساسة جدًا للنقد — الملاحظات بلطف شديد؛ تحتاج أن تشعر بمعنى وإلهام في عملها لا أوامر جافة."},
  {n:"فيرينا مراد",type:"ENTJ-A",nick:"القائد المنفّذ · الواثق",tmp:"NT",tier:"member",role:"تدريب + ميديا",meta:"بنها · أم المؤمنين",fit:"good",
-  a:"منظّمة وقيادية — قوية في إدارة جلسات التدريب (تنظيم وإلقاء وقيادة مجموعة).",
-  s:"قيادة جلسات التدريب وتنظيمها.",w:"تراعي نبرة التعامل كي لا يُحسّ الحزم قسوة."},
+  a:"منظّمة وقيادية — قوية في إدارة جلسات التدريب (تنظيم وإلقاء وقيادة مجموعة). في الميديا، قوتها في التخطيط لا التنفيذ الفني.",
+  s:"قيادة جلسات التدريب وتنظيمها وإلقاء.",w:"تراعي نبرة التعامل كي لا يُحسّ الحزم قسوة، خاصة مع المتدربين الجدد."},
  {n:"ياسين احمد",type:"ENFP-T",nick:"المُناضل · الحساس",tmp:"NF",tier:"member",role:"برمجة (مؤقت)",meta:"طوخ · طوخ الخاصة",fit:"bad",
-  a:"متحمس مبدع، لكن البرمجة المنطقية ليست طبيعته الأقوى، والـ T يجعله يشكك في نفسه تحت الضغط.",
-  s:"حماس وإبداع وطاقة.",w:"أنسب له دور إبداعي/تفاعلي (ميديا/دعم/تدريب)."},
+  a:"متحمس مبدع، لكن البرمجة المنطقية المتسلسلة ليست طبيعته الأقوى، والـ T يجعله يشكك في نفسه تحت الضغط. كونها 'مؤقتة' مناسب.",
+  s:"حماس وإبداع وطاقة وروح جماعية.",w:"أنسب له دور إبداعي/تفاعلي (ميديا / دعم / تدريب) — هناك يتألق أكثر بكثير."},
  {n:"سيليا احمد",type:"ISFJ-T",nick:"المدافع الحامي · الحساس",tmp:"SJ",tier:"member",role:"تدريب",meta:"بنها · الشهيد مصطفى كامل",fit:"good",
-  a:"نمط نادر في التيم: صبورة مسؤولة دقيقة تُنجِز بإتقان وإخلاص. كنز محتمل في الأرشيف والبيانات.",
-  s:"دقة والتزام وصبر على التوثيق.",w:"تحت ضغط داخلي (T) — التقدير يفرق معها كثيرًا. فكّري في نقلها للأرشيف."},
+  a:"نمط نادر وثمين في تيمك (الحارس الوحيد): صبورة، مسؤولة، دقيقة، تُنجِز بإتقان وإخلاص وتهتم بالتفاصيل والناس. التدريب يناسب جانبها الراعي، لكنها ستكون كنزًا حقيقيًا في الأرشيف والبيانات.",
+  s:"دقة والتزام وصبر على التوثيق وإخلاص.",w:"تحت ضغط داخلي (T) والتقدير يفرق معها كثيرًا — وأقوى توصية: انقليها لقيادة الأرشيف، فطبيعتها مصمّمة له."},
  {n:"مروان احمد",type:"ENFP-A",nick:"المُناضل · الواثق",tmp:"NF",tier:"member",role:"برمجة (مؤقت)",meta:"غرب شبرا · الشهيد احمد محروس",fit:"bad",
-  a:"طاقة عالية ومبدع وواثق (A). البرمجة ليست طبيعته الأقوى لكنه مرن وقد يتأقلم.",
-  s:"مرونة وثقة وطاقة اجتماعية.",w:"أنسب له أدوار إبداعية/اجتماعية — فكّري في تحريكه لميديا/دعم/تدريب."},
+  a:"طاقة عالية ومبدع واجتماعي وواثق (A). البرمجة ليست طبيعته الأقوى لكنه مرن وقد يتأقلم مؤقتًا.",
+  s:"مرونة وثقة وطاقة اجتماعية وإبداع.",w:"أنسب له أدوار إبداعية/اجتماعية — أوصي بتحريكه لميديا / دعم / تدريب."},
  {n:"جاسر محمد",type:"ENFJ-T",nick:"البطل المُلهِم · الحساس",tmp:"NF",tier:"member",role:"ميديا + تدريب",meta:"طوخ · طوخ الخاصة",fit:"good",
-  a:"نمط المعلّم المُلهِم الطبيعي — التدريب تطابق ممتاز، والميديا كويسة لحسه بالجمهور.",
-  s:"إلهام وتدريب وقراءة للجمهور.",w:"متأثر بالنقد (T) — خليه يركّز في التدريب، مكانه الطبيعي."},
+  a:"نمط المعلّم المُلهِم الطبيعي — التدريب تطابق ممتاز معه (يقرأ المتدربين ويحفّزهم)، والميديا كويسة لحسه بالجمهور. مرشّح ليكون المدرّب الرئيسي.",
+  s:"إلهام وتدريب وقراءة للجمهور وتحفيز.",w:"متأثر بالنقد (T) — خليه يركّز في التدريب، فهو مكانه الطبيعي ونقطة تألقه."},
  {n:"احمد بدوي",type:"ENTJ-T",nick:"القائد المنفّذ · الحساس",tmp:"NT",tier:"member",role:"برمجة (مؤقت)",meta:"بنها · مدحت طلعت لغات",fit:"good",
-  a:"منظّم منطقي حاسم — يتعامل مع الأنظمة والمنطق جيدًا، فالبرمجة تناسبه أكثر من أنماط الـ ENFP.",
-  s:"صبر منطقي وتركيز على الحل.",w:"الـ T يجعله طموحًا ونقديًا لنفسه — التقدير يساعده."}
+  a:"منظّم منطقي حاسم يتعامل مع الأنظمة والمنطق جيدًا — فالبرمجة تناسبه أكثر بكثير من أنماط الـ ENFP، لأن عنده الصبر المنطقي والتركيز على الحل. مرشّح ليكون عمود البرمجة.",
+  s:"صبر منطقي وتركيز على الحل وتنظيم.",w:"الـ T يجعله طموحًا ونقديًا لنفسه — التقدير والدعم يساعدانه على الثبات تحت الضغط."},
+ {n:"زياد اسلام",type:"ENTJ-A",nick:"القائد المنفّذ · الواثق",tmp:"NT",tier:"member",role:"ميديا وتصوير",meta:"بنها · الشهيد مدحت طلعت",fit:"mid",
+  a:"قائد منظّم حاسم ومنتِج يلتزم بالمواعيد. الميديا الإبداعية البحتة ليست شغف الـ ENTJ الأول؛ قوّته في التنظيم والقيادة والجدولة أكثر من التنفيذ الفني.",
+  s:"تنظيم وإنتاجية والتزام وقيادة.",w:"قد يمل من التنفيذ الفني المتكرر — الأنسب أن يقود تخطيط وجدولة محتوى الميديا. (يتشابه دوره مع زياد محمد، فيمكن أن يقودا فريق الميديا معًا تنظيميًا)."},
+ {n:"عمر عيد",type:"ENFJ-T",nick:"البطل المُلهِم · الحساس",tmp:"NF",tier:"member",role:"بلا دور محدّد بعد",meta:"غرب شبرا · نجيب محفوظ",fit:"mid",
+  a:"البطل المُلهِم: دافئ، اجتماعي، يقرأ مشاعر الناس، يحب أن يساعد ويوجّه — نمط المعلّم/المُحفّز. لم يُسنَد له دور بعد، وهذا إهدار لطاقة بشرية مناسبة جدًا للتدريب أو الدعم.",
+  s:"إلهام وتواصل دافئ وقراءة للناس.",w:"بانتظار تكليف — أوصي برشّحه للتدريب (مع جاسر) أو الدعم والتواصل (مع يوسف مرزوق). الـ T يجعله حساسًا للنقد."},
+ {n:"مازن حمادة",type:"ENTP-A",nick:"المُحاوِر · الواثق",tmp:"NT",tier:"member",role:"برمجة (مؤقت) + تدريب",meta:"بنها · بتمده الثانوية",fit:"mid",
+  a:"محاور مبتكر سريع البديهة وواثق (A). البرمجة كحل ألغاز ومشكلات تناسب فضوله المنطقي أكثر من أنماط الـ ENFP، لكنه يمل من الصيانة والتكرار. التدريب يناسب قدرته على الإقناع وتوليد الأفكار.",
+  s:"حل المشكلات المنطقية والإقناع وتوليد الأفكار.",w:"يمل من المهام الطويلة المتكررة — وجّهيه للجزء التحليلي/الإبداعي في البرمجة، وللتدريب التفاعلي. مرشّح ضمن عمود البرمجة."},
+ {n:"سيلفيا سامح",type:"ENTJ-T",nick:"القائد المنفّذ · الحساس",tmp:"NT",tier:"head",role:"مسؤولة قسم التدريب",meta:"غرب شبرا · ميت نما الثانوية",fit:"good",
+  a:"قائدة بالفطرة منظّمة حاسمة طموحة — تطابق ممتاز مع رئاسة قسم التدريب: تبني المناهج، تنظّم الجلسات، وتقود الفريق بكفاءة. الـ T يجعلها حريصة على الإتقان.",
+  s:"بناء وتنظيم المناهج وقيادة فريق التدريب.",w:"حزمها ومباشرتها قد تُحسّ قاسية، وقد تتوتر تحت الضغط — راعي النبرة مع المتدربين، والتقدير لذاتها."},
+ {n:"محمد طارق",type:"ENFP-A",nick:"المُناضل · الواثق",tmp:"NF",tier:"member",role:"مسؤول ملف تيك داي",meta:"بنها · احمد زويل لغات",fit:"good",
+  a:"تطابق رائع! نمط متحمس مبدع اجتماعي وواثق (A) يزدهر في الفعاليات والطاقة والناس والجِدّة — وهذا جوهر تنظيم 'تيك داي'. سيشحن الحدث حماسًا ويبتكر أفكارًا تفاعلية.",
+  s:"حماس وإبداع وطاقة اجتماعية مثالية للفعاليات.",w:"المتابعة على التفاصيل اللوجستية أضعف نقطة للـ ENFP — اسنديه بمنظّم (ENTJ/ISFJ) يتولّى الجدولة والتفاصيل التشغيلية للحدث."},
+ {n:"ستيفن بيمن",type:"ISFP-T",nick:"المغامر · الفنان",tmp:"SP",tier:"head",role:"مسؤول قسم المونتاج والتصوير",meta:"بنها · مصطفى كامل لغات",fit:"good",
+  a:"تطابق ممتاز وأحد أندر الأنماط في التيم! نمط الفنان: حس جمالي وبصري عالٍ، عملي ودقيق في التنفيذ اليدوي، حاضر في اللحظة (حسّي). المونتاج والتصوير حرفة بصرية تناسب طبيعته تمامًا.",
+  s:"حس فني وبصري عالٍ ودقة في التنفيذ اليدوي.",w:"انطوائي وحساس جدًا للنقد (T) — يحتاج حرية إبداعية وملاحظات بلطف، ولا يحب الجدال أو الضغط المباشر."}
 ];
 
 const grid=document.getElementById('grid');
@@ -351,8 +425,7 @@ function render(list){
   list.forEach(m=>{
     const c=T[m.tmp];
     const fitTxt={good:'تطابق قوي',mid:'تطابق جزئي',bad:'يحتاج مراجعة'}[m.fit];
-    const el=document.createElement('div');
-    el.className='card';
+    const el=document.createElement('div');el.className='card';
     el.innerHTML=`
       <div class="edge" style="background:${c}"></div>
       <div class="ctop">
@@ -386,7 +459,49 @@ document.getElementById('tabs').addEventListener('click',e=>{
 document.getElementById('search').addEventListener('input',e=>{curQ=e.target.value.trim();apply();});
 render(members);
 
-// animate dimension bars
+// ===== section analysis =====
+const sections=[
+ {name:"التقييم والمتابعة",health:"h-good",htxt:"قوي",
+  mem:[["بلال","INFJ","NF"],["جني","INTJ","NT"],["حنين","INFJ","NF"],["احمد صياد","ENTP","NT"]],
+  rec:"قسم استثنائي العمق: ثلاثة من أعمق المفكرين معًا. جني للتوثيق المنهجي، بلال وحنين للبصيرة الإنسانية. خفّفي الروتيني عن احمد صياد."},
+ {name:"التدريب",health:"h-good",htxt:"قوي",
+  mem:[["سيلفيا (مسؤولة)","ENTJ","NT"],["مريم","ENTJ","NT"],["فيرينا","ENTJ","NT"],["جاسر","ENFJ","NF"],["سيليا","ISFJ","SJ"],["مازن","ENTP","NT"]],
+  rec:"مكدّس بالقادة المنظّمين والمُلهِمين — أنسب الأنماط للتدريب. اجعلي جاسر (المعلّم الطبيعي) مدرّبًا رئيسيًا، وسيلفيا/مريم للتنظيم والقيادة. أضيفي عمر عيد هنا."},
+ {name:"الدعم والتواصل",health:"h-good",htxt:"قوي (قليل العدد)",
+  mem:[["يوسف مرزوق (مسؤول)","ENFJ","NF"],["احمد سامر","?","SJ"]],
+  rec:"القيادة مثالية (ENFJ) لكن القسم قليل العدد. عزّزيه بـ مالك (ESFP، اجتماعي) وعمر عيد (ENFJ) — كلاهما اجتماعي ومناسب."},
+ {name:"المونتاج والميديا",health:"h-mid",htxt:"متوسط (غير متوازن)",
+  mem:[["ستيفن (مسؤول مونتاج)","ISFP","SP"],["لجين","INFP","NF"],["جاسر","ENFJ","NF"],["زياد محمد","ENTJ","NT"],["زياد اسلام","ENTJ","NT"],["فيرينا","ENTJ","NT"]],
+  rec:"الإبداع الفني الحقيقي عند ستيفن ولجين؛ الـ ENTJ الثلاثة منظّمون أكثر منهم فنانين. اجعلي ستيفن ولجين للتنفيذ الفني، والـ ENTJ للتخطيط والجدولة والإشراف."},
+ {name:"البرمجيات",health:"h-mid",htxt:"متوسط",
+  mem:[["ملك الشامي (مسؤول)","ENFP","NF"],["احمد بدوي","ENTJ","NT"],["مازن","ENTP","NT"],["ياسين","ENFP","NF"],["مروان","ENFP","NF"],["يس محمد حازم","?","SJ"]],
+  rec:"٣ من ENFP أضعف تطابقًا مع المنطق المتسلسل. اجعلي العمود الفقري احمد بدوي + مازن (+ جني INTJ)، وحوّلي ملك/ياسين/مروان لأدوار إبداعية."},
+ {name:"الأرشيف والبيانات",health:"h-bad",htxt:"يحتاج تدخّل",
+  mem:[["مالك (مسؤول)","ESFP","SP"],["محمود هيثم","ENTJ","NT"],["احمد سامر","?","SJ"],["يس محمد حازم","?","SJ"]],
+  rec:"المسؤول (ESFP) غير متطابق. أقوى توصية في اللوحة: انقلي القيادة لمحمود (ENTJ) أو سيليا (ISFJ) — وسيليا كنز للأرشيف — ومالك ينتقل للدعم/الفعاليات."},
+ {name:"الملفات التنفيذية",health:"h-good",htxt:"قوي",
+  mem:[["محمد طارق (تيك داي)","ENFP","NF"],["مريم (ملف الطلاب)","ENTJ","NT"]],
+  rec:"محمد طارق (ENFP) مثالي لشحن فعالية تيك داي حماسًا، ومريم (ENTJ) منظّمة لملف الطلاب. اسندي محمد طارق بمنظّم للوجستيات."},
+ {name:"القيادة العليا",health:"h-good",htxt:"قوي",
+  mem:[["حسين (قائد)","ENTP","NT"],["يوسف صياد (محتوى+إداري)","ENTP","NT"],["احمد عبد العليم (مساعد تنفيذي)","ENTJ","NT"],["احمد فايز (مساعد إداري)","?","SJ"]],
+  rec:"ثنائي ENTP+ENTJ من أقوى تركيبات القيادة (رؤية + تنفيذ). نقطة الضعف: الجانب الإداري الروتيني — يحتاج أحد القادة دعمًا منظّمًا فيه."}
+];
+const secEl=document.getElementById('secs');
+sections.forEach(s=>{
+  const chips=s.mem.map(m=>{
+    const isP=m[1]==='?';
+    const col=isP?'var(--faint)':T[m[2]];
+    return `<span class="mchip ${isP?'pend':''}">${m[0]} <b style="${isP?'':'background:'+col}">${isP?'؟':m[1]}</b></span>`;
+  }).join('');
+  const el=document.createElement('div');el.className='sc';
+  el.innerHTML=`
+    <div class="sc-top"><h3>${s.name}</h3><span class="hbadge ${s.health}">${s.htxt}</span></div>
+    <div class="mchips">${chips}</div>
+    <div class="sc-rec"><span class="b">◆ التوصية:</span><span>${s.rec}</span></div>`;
+  secEl.appendChild(el);
+});
+
+// animate bars
 window.addEventListener('load',()=>{
   setTimeout(()=>document.querySelectorAll('.seg').forEach(s=>{s.style.width=s.dataset.w+'%';}),200);
 });
